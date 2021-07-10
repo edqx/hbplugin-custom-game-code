@@ -27,7 +27,7 @@ const i18n = {
 } as Record<string, Record<number, string>>;
 
 @HindenburgPlugin({
-    id: "hbplugin-custom-game-code",
+    id: "hbplugin-customgamecode",
     version: "1.0.0",
     order: "none"
 })
