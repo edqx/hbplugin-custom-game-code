@@ -1,6 +1,6 @@
 {
-  "name": "hbplugin-custom-game-code",
-  "version": "1.0.9",
+  "name": "hbplugin-customgamecode",
+  "version": "1.0.11",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc -p ./",
