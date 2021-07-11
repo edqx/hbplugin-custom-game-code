@@ -63,6 +63,7 @@ export default class extends Plugin {
         if (pendingRoom) {
             if (ev.gameCode === Code2Int("CANCEL")) {
                 ev.cancel();
+                this.pendingRooms.delete(keyName);
                 return ev.client.disconnect(DisconnectReason.None); // instantly disconnect with no message
             }
 
@@ -73,6 +74,7 @@ export default class extends Plugin {
 
             clearInterval(pendingRoom[1]);
             const room = await this.worker.createRoom(ev.gameCode, pendingRoom[0]);
+            this.pendingRooms.delete(keyName);
             
             this.logger.info("%s created room %s",
                 ev.client, room)
