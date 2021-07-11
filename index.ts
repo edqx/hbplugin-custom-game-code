@@ -8,8 +8,10 @@ import {
     GameOptions,
     Language,
     ReliablePacket,
-    HostGameMessage
+    HostGameMessage,
+    DisconnectReason
 } from "@skeldjs/hindenburg";
+import { Code2Int } from "@skeldjs/util";
 
 const i18n = {
     enter_custom_game_code: {
@@ -59,12 +61,17 @@ export default class extends Plugin {
         const keyName = this.formatClient(ev.client);
         const pendingRoom = this.pendingRooms.get(keyName);
         if (pendingRoom) {
+            if (ev.gameCode === Code2Int("CANCEL")) {
+                ev.cancel();
+                return ev.client.disconnect(DisconnectReason.None); // instantly disconnect with no message
+            }
+
             if (this.worker.rooms.has(ev.gameCode)) {
                 ev.cancel();
                 return ev.client.joinError(i18n.room_with_code_exists[ev.client.language] || i18n.room_with_code_exists[Language.English]);
             }
 
-            clearTimeout(pendingRoom[1]);
+            clearInterval(pendingRoom[1]);
             const room = await this.worker.createRoom(ev.gameCode, pendingRoom[0]);
             
             this.logger.info("%s created room %s",
