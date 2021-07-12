@@ -11,30 +11,12 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@types/node@npm:*":
-  version: 15.12.5
-  resolution: "@types/node@npm:15.12.5"
-  checksum: 4550941a5db67f21bf1c54b2f76ef6fb56ced08583b6049fceef5972ef73791225c41b9a30ce36f496fded284dd736973b5e2107f4bd036d41f35550e3af3450
-  languageName: node
-  linkType: hard
-
-"@types/ws@npm:^7.4.5":
-  version: 7.4.5
-  resolution: "@types/ws@npm:7.4.5"
-  dependencies:
-    "@types/node": "*"
-  checksum: e38c11de8d8acd27a4412c2443b7ad2d044fe0a7f3f4c86af392184555bc9d9d334e735aff5b1b33a25b74ee0efe14a187cc9d0994675e18e14b6a7e9b2015c3
-  languageName: node
-  linkType: hard
-
 "hbplugin-customgamecode@workspace:.":
   version: 0.0.0-use.local
   resolution: "hbplugin-customgamecode@workspace:."
   dependencies:
     "@skeldjs/hindenburg": "link:../.."
-    "@types/ws": ^7.4.5
     typescript: ^4.3.5
-    ws: ^7.5.1
   languageName: unknown
   linkType: soft
 
@@ -55,20 +37,5 @@ typescript@^4.3.5:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: bc2c4fdf0f1557fdafe4ef74848c72ebd9c8c60829568248f869121aea2bb20e16649a252431d0acb185ec118143be22bed73d08f64379557810d82756afedde
-  languageName: node
-  linkType: hard
-
-"ws@npm:^7.5.1":
-  version: 7.5.1
-  resolution: "ws@npm:7.5.1"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: b9da1b5dc8cd57725453b7f2305e39e21ddcfb5d908cc8ae8b12112b955f50d0d4921009f0f9d587000b0c72cb3748db329b3ddbd98e86829ffcf7b9700a58bf
   languageName: node
   linkType: hard
